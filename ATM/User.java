@@ -54,5 +54,18 @@ public class User {
     public  String getUserUniqueID(){
         return this.userUniqueID;
     }
+
+    public boolean validatePin(String userPin){
+
+        try {
+            MessageDigest md = MessageDigest.getInstance("MDS");
+            return MessageDigest.isEqual(md.digest(userPin.getBytes()), this.userPin)
+        } catch (Exception e) {
+            System.out.println("Error" + e.getMessage());
+            System.exit(1);
+        }
+
+        return false;
+    }
 }
 
