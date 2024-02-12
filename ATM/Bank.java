@@ -20,6 +20,11 @@ public class Bank {
         this.user = new ArrayList<User>();
         this.accounts = new ArrayList<Account>();
     }
+
+    public String getName(){
+
+        return this.name;
+    }
     public String getUserID(){
 
         String userUniqueID;
