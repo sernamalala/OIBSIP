@@ -32,10 +32,6 @@ public class Account {
         //current transactions made in account
         this.transactions = new ArrayList<Transaction>();
 
-        //add current user to currentUser and Bank
-        //updates lists as we go
-        currentUser.addAccount(this);
-        myBank.addAccount(this);
     }
 
     public String getAccountUniqueID(){

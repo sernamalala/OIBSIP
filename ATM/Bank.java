@@ -7,7 +7,7 @@ public class Bank {
 
     private String name;
 
-    //current user
+    //current user arraylist
     private ArrayList <User> user;
 
     //current account
@@ -75,7 +75,27 @@ public class Bank {
 
     }
 
+    //adds account to current available accounts of the current user
     public void addAccount(Account myAccount) {
         this.accounts.add(myAccount);
+    }
+
+    public User addUser(String firstName, String lastName, String userPin){
+
+        //user object will be created
+
+        User newUser = new User(firstName, lastName, userPin, this);
+        this.user.add(newUser);
+
+        //create an account ie. savings
+
+        Account newAccount = new Account(lastName, newUser, this);
+        
+        //add current user to currentUser and Bank
+        //updates lists as we go
+       newUser.addAccount(newAccount);
+       this.addAccount(newAccount);
+
+       return newUser;
     }
 }
