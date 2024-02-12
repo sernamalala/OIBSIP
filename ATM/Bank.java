@@ -14,6 +14,12 @@ public class Bank {
 
     private ArrayList <Account> accounts;
 
+    public Bank(String name){
+
+        this.name = name;
+        this.user = new ArrayList<User>();
+        this.accounts = new ArrayList<Account>();
+    }
     public String getUserID(){
 
         String userUniqueID;
@@ -103,12 +109,11 @@ public class Bank {
 
         for(User currentUser: this.user){
 
-            if(currentUser.getUserUniqueID().compareTo(userID) && currentUser.validatePin(userPin)){
+            if(currentUser.getUserUniqueID().compareTo(userID) == 0 && currentUser.validatePin(userPin)){
                 return currentUser;
             }
-            else{
-                return null;
-            }
+  
         }
+        return null;
     }
 }

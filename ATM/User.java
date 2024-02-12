@@ -27,7 +27,7 @@ public class User {
         //add try and catch
 
         try {
-            MessageDigest md = MessageDigest.getInstance("MDS");
+            MessageDigest md = MessageDigest.getInstance("MD5");
             this.userPin = md.digest(pin.getBytes());
         } catch (Exception e) {
             System.out.println("Error" + e.getMessage());
@@ -58,8 +58,8 @@ public class User {
     public boolean validatePin(String userPin){
 
         try {
-            MessageDigest md = MessageDigest.getInstance("MDS");
-            return MessageDigest.isEqual(md.digest(userPin.getBytes()), this.userPin)
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            return MessageDigest.isEqual(md.digest(userPin.getBytes()), this.userPin);
         } catch (Exception e) {
             System.out.println("Error" + e.getMessage());
             System.exit(1);
