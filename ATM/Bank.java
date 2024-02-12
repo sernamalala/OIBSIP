@@ -98,4 +98,17 @@ public class Bank {
 
        return newUser;
     }
+
+    public User Login(String userID, String userPin){
+
+        for(User currentUser: this.user){
+
+            if(currentUser.getUserUniqueID().compareTo(userID) && currentUser.validatePin(userPin)){
+                return currentUser;
+            }
+            else{
+                return null;
+            }
+        }
+    }
 }
